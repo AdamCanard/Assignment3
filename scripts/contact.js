@@ -6,7 +6,7 @@ let subButton = document.getElementById("submit-button");
 subButton.addEventListener("click", submit);
 
 function submit() {
-  content = document.getElementById("contact-page");
+  var content = document.getElementById("contact-page");
   content.innerHTML = "<p>Thank you for your message!</p>";
   content.style.fontSize = "24px";
   content.style.justifyContent = "unset";

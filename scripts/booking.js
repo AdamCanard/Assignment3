@@ -2,7 +2,7 @@
 // useful variables might be: the cost per day, the number of days selected, and elements on the screen that will be clicked or will need to be modified.
 // Do any of these variables need to be initialized when the page is loaded?
 // When do they need to be reset or updated?
-const full = 40;
+const full = 35;
 const half = 20;
 const clicked = "clicked";
 var dayCounter = 0;
@@ -61,7 +61,7 @@ function addClass(e) {
 // when the clear-button is clicked, the "clicked" class is removed from all days, any other relevant variables are reset, and the calculated cost is set to 0.
 
 function clear() {
-  for (i in dayButtonList) {
+  for (var i in dayButtonList) {
     if (dayButtonList[i].classList.contains(clicked)) {
       dayButtonList[i].classList.remove(clicked);
       dayCounter--;
@@ -75,15 +75,15 @@ function clear() {
 
 function recalculate() {
   var cost = document.getElementById("calculated-cost");
-
+  var currentCost;
   if (halfElement.classList.contains(clicked)) {
-    currentCost = dayCounter * 20;
+    currentCost = dayCounter * half;
     calculate(cost, currentCost);
   }
 
   // when the full-day button is clicked, the daily rate is set back to $35, the clicked class is added to "full" and removed from "half", and the total cost is recalculated.
   else {
-    currentCost = dayCounter * 35;
+    currentCost = dayCounter * full;
     calculate(cost, currentCost);
   }
 }
